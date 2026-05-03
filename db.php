@@ -1,7 +1,14 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "portfolio_db");
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "portfolio_db";
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+$conn = new mysqli($host, $user, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+$conn->set_charset("utf8mb4");
 ?>
